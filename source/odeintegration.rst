@@ -59,27 +59,37 @@ As you can see from :eq:`dtp_cp_sim_sine_model`, if correctly integrated :math:`
 
 .. _fig_dtp_cp_sim_euler1:
 
-.. figure:: images/euler1.png
+.. figure:: _static/euler1.png
    :align: center
    :figwidth: 95%
    :width: 90%
    :alt: Task 1 workbench.
    
-   The first Euler example as loaded. The step to configure is highlighted.
+   The first Euler example as loaded.
    
 3. Click the :guilabel:`Execute` button and you should get a widget displayed as per :numref:`fig_dtp_cp_sim_euler2`.
 
 .. _fig_dtp_cp_sim_euler2:
 
-.. figure:: images/euler2.png
+.. figure:: _static/euler2.png
    :align: center
    :figwidth: 95%
    :width: 90%
    :alt: Task 1 GUI.
    
-   The cool GUI.
+   The cool Euler integrator interface. In this simple interface, you will see the standard sine function, :math:`sin(t)`, plotted in the right hand panel. The toolbar under the plot is self-explanatory, but provides access to some nifty features. At the top of the left hand panel you will see the control to set the Euler step size for this model, :math:`h`. The :guilabel:`Simulate` button will execute the Euler integration of the model :eq:`dtp_cp_sim_sine_model` and plot the result on the plot to the right. This can be repeated with various values of :math:`h`. The :guilabel:`Clear graph` button will, surprisingly, clear the current simulation results from the plot panel. The :guilabel:`Done` button will drop you back to the work-flow diagram, where you can get back to the plot by executing the work-flow once more.
    
-4. As shown in :numref:`fig_dtp_cp_sim_euler2`, clicking the :guilabel:`simulate` button will run a simulation using the currently specified step size.
+4. As described in :numref:`fig_dtp_cp_sim_euler2`, multiple simulations can be performed with varying values for the step size, :math:`h`. Shown in :numref:`fig_dtp_cp_sim_euler3` you can see that as :math:`h` reduces in size, the approximation of the model :eq:`dtp_cp_sim_sine_model` by integration using the Euler method gets more accurate.
+
+.. _fig_dtp_cp_sim_euler3:
+
+.. figure:: _static/euler3.png
+   :align: center
+   :figwidth: 95%
+   :width: 90%
+   :alt: Task 1 results.
+   
+   Simulation results demonstrating the effect of step size, :math:`h`, on the accuracy of Euler's method in approximating the solution of :eq:`dtp_cp_sim_sine_model`.
 
 .. _dtp_cp_sim_ode_cvode:
 
