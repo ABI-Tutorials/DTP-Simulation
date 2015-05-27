@@ -34,15 +34,14 @@ we now want to approximate :math:`y(t)` over some interval :math:`t_0 \rightarro
 
 The value of :math:`y_n` is an approximation of the solution of the ODE :eq:`dtp_cp_sim_euler_system` at time :math:`t_n`: :math:`y_n \approx y(t_n)`. The Euler method proceeds through the interval in constant steps of size :math:`h` until :math:`t_n = t_{final}` and the integration is complete.
 
-The effect of step size
-+++++++++++++++++++++++
+.. _dtp_cp_sim_ode_task1:
+
+Task 1 - the effect of step size
+++++++++++++++++++++++++++++++++
 
 As you'd imagine, the size of :math:`h` in the Euler method is crucial to the successful application of the method. For the successful (although perhaps inaccurate) integration of a typical physiological model (see the `Physiome Repository <https://models.physiomeproject.org>`_ for a collection of examples), :math:`h` can be so small that the computational cost of performing the simulation is very high. In some cases, mathematical models may be unsuitable for integration by Euler method, regardless of how small the step size is reduced to.
 
 In the follow task, we investigate the effect of altering the size of :math:`h` on two separate simulation experiments. The first looks at a simple mathematical model where the experiment could be replicated with pen and paper, while the second looks into the application of Euler's method to a biophysical model of cellular electrophysiology.
-
-Task 1
-~~~~~~
 
 The following task assumes familiarity with the :ref:`virtual machine <dtp_cp_virtualmachine>`. In this task we use the trivial model:
 
@@ -96,4 +95,70 @@ As you can see from :eq:`dtp_cp_sim_sine_model`, if correctly integrated :math:`
 CVODE
 *****
 
-From the `Sundials <https://computation.llnl.gov/casc/sundials/main.html>`_ suite of tools, CVODE is a solver for stiff and nonstiff ordinary differential equation (ODE) systems (initial value problem) given in explicit form :math:`y' = f(t,y)`.  
+From the `Sundials <https://computation.llnl.gov/casc/sundials/main.html>`_ suite of tools, CVODE is a solver for stiff and nonstiff ordinary differential equation (ODE) systems (initial value problem) given in explicit form in :eq:`dtp_cp_sim_euler_system` above. CVODE is widely regarded as one of the gold standard implementations of a robust and flexible numerical integrator. One of the advantages of CVODE over Euler's method is that it makes use of adaptive stepping over the interval of integration - rather than taking fixed sized steps through time, for example, CVODE will determine how quickly things are changing and adjust the size of the step accordingly.
+
+.. _dtp_cp_sim_ode_task2:
+
+Task 2 - fixed vs adaptive stepping
++++++++++++++++++++++++++++++++++++
+
+In this task we examine the limitations and the computational costs associated with a fixed step method (Euler) compared to an adaptive step method (CVODE). We use the recent `biophysically based mathematical model of unitary potential activity in interstitial cells of Cajal <https://models.physiomeproject.org/exposure/988bef2de04476a20b1e76e9e933b86b>`_. The interstitial cells of Cajal (ICC) are the pacemaker cells of the gastrointestinal tract and provide the electrical stimulus required to activate the contraction of smooth muscle cells nescessary for the correct behaviour of the GI tract. This particular model was developed by scientists at the Auckland Bioengineering Institute to investigate a specific hypothesis regarding the biophysical mechanism underlying the pacemaker function of ICCs.
+
+1. Run MAP Client, choose :menuselection:`File --> Open` and select :file:`{HOME}/projects/mapclient-workflows/DTP-Simulation-Task2`.
+2. This simple workflow should look similar to that used in task 1 above (:numref:`fig_dtp_cp_sim_euler1`). The workflow is pre-configured so there is no configuration required.
+3. Click the :guilabel:`Execute` button and you should get a widget displayed as per :numref:`fig_dtp_cp_sim_task2_1`.
+
+.. _fig_dtp_cp_sim_task2_1:
+
+.. figure:: _static/task2_1.png
+   :align: center
+   :figwidth: 95%
+   :width: 90%
+   :alt: Task 2 GUI.
+   
+   The user interface in this task is similar to that described in :numref:`fig_dtp_cp_sim_euler2`, and the common elements behave the same. In addition there is the ability to choose either the Euler or CVODE numerical integration methods. As the CVODE method is an adaptive stepping method, the value of :math:`h` is used to limit the maximum step size that the algorithm will use, with :math:`h=0` indicating the maximum step size is unlimited.
+   
+4. You can now attempt to find the value of :math:`h` that will enable the Euler integration method to successfully reproduce the result shown in :numref:`fig_dtp_cp_sim_task2_2`. Hint: this particular model has characteristics that make it very difficult to simulate using a fixed method like Euler.
+
+.. _fig_dtp_cp_sim_task2_2:
+
+.. figure:: _static/task2_2.png
+   :align: center
+   :figwidth: 95%
+   :width: 90%
+   :alt: Task 1 results.
+   
+   Simulation results for a successful integration of the ICC model using the Euler integration method. Determining a suitable Euler step size, :math:`h`, to recreate these results is an exercise for the reader.
+
+5. You can now compare the results obtained using the CVODE integration method with those from your successful Euler simulation. In the plot legend you will see the ``time`` value - this is a rough measure of the length of time taken for the given simulation. Hopefully you will see that the adaptive stepping CVODE method performs better than the Euler method.
+
+Task 3 - error control
+++++++++++++++++++++++
+
+In addition to providing adaptive stepping, CVODE is also a very configurable solver. Beyond the maximum step size explored above, a further control parameter of that is often of interest are the tolerances used to control the accumulation of error in the numerical approximation of the mathematical model. This tolerance specifies how accurate we require the solution of the integration to be, and the value used can be very specific to the mathematical model being simulated. In task 2 above, we used a tolerance of 1.0e-7. Depending on the behaviour of your mathematical model, you may need to tighten (reduce) or loosen (increase) the tolerance values, depending on the specific application the model is being used for. Here we explore the effect of the tolerance value on the ICC model introduced above.
+
+1. Run MAP Client, choose :menuselection:`File --> Open` and select :file:`{HOME}/projects/mapclient-workflows/DTP-Simulation-Task3`.
+2. This simple workflow should look similar to that used in task 1 above (:numref:`fig_dtp_cp_sim_euler1`). The workflow is pre-configured so there is no configuration required.
+3. Click the :guilabel:`Execute` button and you should get a widget displayed as per :numref:`fig_dtp_cp_sim_task3_1`.
+
+.. _fig_dtp_cp_sim_task3_1:
+
+.. figure:: _static/task3_1.png
+   :align: center
+   :figwidth: 95%
+   :width: 90%
+   :alt: Task 3 GUI.
+   
+   The user interface in this task is similar to that described in :numref:`fig_dtp_cp_sim_euler2`, and the common elements behave the same. We now are only using the CVODE integration method so :math:`h` is the maximum step size with :math:`h=0` indicating an unlimited step size. The tolerance value for the simulation can also be edited in this interface.
+   
+4. You can now investigate the effect of changing the tolerance value and maximum step size on the simulation result. Not all combinations will successfully complete. Example results are shown in :numref:`fig_dtp_cp_sim_task3_2`.
+
+.. _fig_dtp_cp_sim_task3_2:
+
+.. figure:: _static/task3_2.png
+   :align: center
+   :figwidth: 95%
+   :width: 90%
+   :alt: Task 1 results.
+   
+   Simulation results for a selection of simulations of the ICC model using various configurations of the CVODE integratior.
