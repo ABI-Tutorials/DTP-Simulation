@@ -132,6 +132,8 @@ In this task we examine the limitations and the computational costs associated w
 
 5. You can now compare the results obtained using the CVODE integration method with those from your successful Euler simulation. In the plot legend you will see the ``time`` value - this is a rough measure of the length of time taken for the given simulation. Hopefully you will see that the adaptive stepping CVODE method performs better than the Euler method.
 
+.. _dtp_cp_sim_ode_task3:
+
 Task 3 - error control
 ++++++++++++++++++++++
 

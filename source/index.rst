@@ -16,7 +16,7 @@ Contents:
    :maxdepth: 2
 
    odeintegration
-   parameterscans
+   biologicalcomplexity
    multiscale
    
 .. _dtp_cp_sim_overview:
@@ -30,8 +30,10 @@ The quick highlights in this tutorial.
 
    #. Two specific algorithms presented: :ref:`Euler's method <dtp_cp_sim_ode_euler>` and :ref:`CVODE <dtp_cp_sim_ode_cvode>`.
    #. Investigate the impact of choosing the correct algorithm control parameters (:ref:`dtp_cp_sim_ode_task1`).
-   #. Observe the limitations and the computational cost associated with numerical method choices (:ref:`dtp_cp_sim_ode_task2`). 
+   #. Observe the limitations and the computational cost associated with numerical method choices (:ref:`dtp_cp_sim_ode_task2`) and algorithm parameterisation (:ref:`dtp_cp_sim_ode_task3`). 
 
+#. How much biological detial is too much?
+#. Integrating cellular models into organ models.
 
    
 ..   Indices and tables
