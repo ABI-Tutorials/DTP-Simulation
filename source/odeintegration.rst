@@ -76,7 +76,7 @@ As you can see from :eq:`dtp_cp_sim_sine_model`, if correctly integrated :math:`
    :width: 90%
    :alt: Task 1 GUI.
    
-   The cool Euler integrator interface. In this simple interface, you will see the standard sine function, :math:`sin(t)`, plotted in the right hand panel. The toolbar under the plot is self-explanatory, but provides access to some nifty features. At the top of the left hand panel you will see the control to set the Euler step size for this model, :math:`h`. The :guilabel:`Simulate` button will execute the Euler integration of the model :eq:`dtp_cp_sim_sine_model` and plot the result on the plot to the right. This can be repeated with various values of :math:`h`. The :guilabel:`Clear graph` button will, surprisingly, clear the current simulation results from the plot panel. The :guilabel:`Done` button will drop you back to the work-flow diagram, where you can get back to the plot by executing the work-flow once more.
+   The cool Euler integrator interface. In this simple interface, you will see the standard sine function, :math:`sin(t)`, plotted in the right hand panel. The toolbar under the plot is self-explanatory, but provides access to some nifty features. At the top of the left hand panel you will see the control to set the Euler step size for this model, :math:`h` and also the number of points to be obtained. The :guilabel:`Simulate` button will execute the Euler integration of the model :eq:`dtp_cp_sim_sine_model` and plot the result on the plot to the right. This can be repeated with various values of :math:`h`. The :guilabel:`Clear graph` button will, surprisingly, clear the current simulation results from the plot panel. The :guilabel:`Done` button will drop you back to the work-flow diagram, where you can get back to the plot by executing the work-flow once more.
    
 4. As described in :numref:`fig_dtp_cp_sim_euler2`, multiple simulations can be performed with varying values for the step size, :math:`h`. Shown in :numref:`fig_dtp_cp_sim_euler3` you can see that as :math:`h` reduces in size, the approximation of the model :eq:`dtp_cp_sim_sine_model` by integration using the Euler method gets more accurate.
 
@@ -89,6 +89,8 @@ As you can see from :eq:`dtp_cp_sim_sine_model`, if correctly integrated :math:`
    :alt: Task 1 results.
    
    Simulation results demonstrating the effect of step size, :math:`h`, on the accuracy of Euler's method in approximating the solution of :eq:`dtp_cp_sim_sine_model`.
+   
+5. Now have a play with combining different values for the step size and the number of points to be obtained.
 
 .. _dtp_cp_sim_ode_cvode:
 
@@ -102,7 +104,7 @@ From the `Sundials <https://computation.llnl.gov/casc/sundials/main.html>`_ suit
 Task 2 - fixed vs adaptive stepping
 +++++++++++++++++++++++++++++++++++
 
-In this task we examine the limitations and the computational costs associated with a fixed step method (Euler) compared to an adaptive step method (CVODE). We use the recent `biophysically based mathematical model of unitary potential activity in interstitial cells of Cajal <https://models.physiomeproject.org/exposure/988bef2de04476a20b1e76e9e933b86b>`_. The interstitial cells of Cajal (ICC) are the pacemaker cells of the gastrointestinal tract and provide the electrical stimulus required to activate the contraction of smooth muscle cells nescessary for the correct behaviour of the GI tract. This particular model was developed by scientists at the Auckland Bioengineering Institute to investigate a specific hypothesis regarding the biophysical mechanism underlying the pacemaker function of ICCs.
+In this task we examine the limitations and the computational costs associated with a fixed step method (Euler) compared to an adaptive step method (CVODE). Here we continue with our sine integration demonstration model to help highlight the differences.
 
 1. Run MAP Client, choose :menuselection:`File --> Open` and select :file:`{HOME}/projects/mapclient-workflows/DTP-Simulation-Task2`.
 2. This simple workflow should look similar to that used in task 1 above (:numref:`fig_dtp_cp_sim_euler1`). The workflow is pre-configured so there is no configuration required.
@@ -118,19 +120,19 @@ In this task we examine the limitations and the computational costs associated w
    
    The user interface in this task is similar to that described in :numref:`fig_dtp_cp_sim_euler2`, and the common elements behave the same. In addition there is the ability to choose either the Euler or CVODE numerical integration methods. As the CVODE method is an adaptive stepping method, the value of :math:`h` is used to limit the maximum step size that the algorithm will use, with :math:`h=0` indicating the maximum step size is unlimited.
    
-4. You can now attempt to find the value of :math:`h` that will enable the Euler integration method to successfully reproduce the result shown in :numref:`fig_dtp_cp_sim_task2_2`. Hint: this particular model has characteristics that make it very difficult to simulate using a fixed method like Euler.
+4. You can now easily see the difference between the two integration methods by directly comparing them, as shown in :numref:`fig_dtp_cp_sim_task2_2`.
 
 .. _fig_dtp_cp_sim_task2_2:
 
-.. figure:: _static/task2_2.png
+.. figure:: _static/task2_2-new.png
    :align: center
    :figwidth: 95%
    :width: 90%
-   :alt: Task 1 results.
+   :alt: Task 2 sample results.
    
-   Simulation results for a successful integration of the ICC model using the Euler integration method. Determining a suitable Euler step size, :math:`h`, to recreate these results is an exercise for the reader.
+   Simulation results showing the comparison between the Euler and CVODE integrators.
 
-5. You can now compare the results obtained using the CVODE integration method with those from your successful Euler simulation. In the plot legend you will see the ``time`` value - this is a rough measure of the length of time taken for the given simulation. Hopefully you will see that the adaptive stepping CVODE method performs better than the Euler method.
+5. Now have a play with step sizes, number of points, and integration methods to explore the features of these two integration methods.
 
 .. _dtp_cp_sim_ode_task3:
 
@@ -138,6 +140,8 @@ Task 3 - error control
 ++++++++++++++++++++++
 
 In addition to providing adaptive stepping, CVODE is also a very configurable solver. Beyond the maximum step size explored above, a further control parameter of that is often of interest are the tolerances used to control the accumulation of error in the numerical approximation of the mathematical model. This tolerance specifies how accurate we require the solution of the integration to be, and the value used can be very specific to the mathematical model being simulated. In task 2 above, we used a tolerance of 1.0e-7. Depending on the behaviour of your mathematical model, you may need to tighten (reduce) or loosen (increase) the tolerance values, depending on the specific application the model is being used for. Here we explore the effect of the tolerance value on the ICC model introduced above.
+
+We use the recent `biophysically based mathematical model of unitary potential activity in interstitial cells of Cajal <https://models.physiomeproject.org/exposure/988bef2de04476a20b1e76e9e933b86b>`_. The interstitial cells of Cajal (ICC) are the pacemaker cells of the gastrointestinal tract and provide the electrical stimulus required to activate the contraction of smooth muscle cells nescessary for the correct behaviour of the GI tract. This particular model was developed by scientists at the Auckland Bioengineering Institute to investigate a specific hypothesis regarding the biophysical mechanism underlying the pacemaker function of ICCs.
 
 1. Run MAP Client, choose :menuselection:`File --> Open` and select :file:`{HOME}/projects/mapclient-workflows/DTP-Simulation-Task3`.
 2. This simple workflow should look similar to that used in task 1 above (:numref:`fig_dtp_cp_sim_euler1`). The workflow is pre-configured so there is no configuration required.
@@ -164,3 +168,4 @@ In addition to providing adaptive stepping, CVODE is also a very configurable so
    :alt: Task 1 results.
    
    Simulation results for a selection of simulations of the ICC model using various configurations of the CVODE integratior.
+   
