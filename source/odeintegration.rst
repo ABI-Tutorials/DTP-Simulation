@@ -43,7 +43,11 @@ As you'd imagine, the size of :math:`h` in the Euler method is crucial to the su
 
 In the follow task, we investigate the effect of altering the size of :math:`h` on two separate simulation experiments. The first looks at a simple mathematical model where the experiment could be replicated with pen and paper, while the second looks into the application of Euler's method to a biophysical model of cellular electrophysiology.
 
-The following task assumes familiarity with the :ref:`virtual machine <dtp_cp_virtualmachine>`. In this task we use the trivial model:
+.. todo::
+
+   This task requires familiarity with the virtual machine? need to update.
+
+In this task we use the trivial model:
 
 .. math::
    :label: dtp_cp_sim_sine_model
