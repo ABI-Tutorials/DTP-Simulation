@@ -35,3 +35,9 @@ In this example we explore the effect of spatial resolution of the numerical met
    :alt: Task 4 results.
    
    Simulation results for a 2x1 mesh.
+   
+5. You need to be careful in your choice of mesh resolution as it can easily take forever to solve :) Have a play and think about the following questions.
+
+   #. How long are you prepared to wait for a suitable simulation result?
+   #. Why do you need a higher mesh resolution in the x-direction than the y-direction to achieve a reasonable solution?
+   #. What is the lowest mesh resolution that gives a reasonable solution compared to the provided converged solution?

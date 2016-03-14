@@ -94,7 +94,11 @@ As you can see from :eq:`dtp_cp_sim_sine_model`, if correctly integrated :math:`
    
    Simulation results demonstrating the effect of step size, :math:`h`, on the accuracy of Euler's method in approximating the solution of :eq:`dtp_cp_sim_sine_model`.
    
-5. Now have a play with combining different values for the step size and the number of points to be obtained.
+5. Now have a play with combining different values for the step size and the number of points to be obtained. See if you can answer the following.
+
+   #. How small should :math:`h` be to accurately simulate a sine wave?
+   #. What do you think would happen beyond a single cycle?
+   #. Given :math:`h = 1`\ , do you obtain a more accurate solution with a large number of points or a small number of points?
 
 .. _dtp_cp_sim_ode_cvode:
 
@@ -136,7 +140,13 @@ In this task we examine the limitations and the computational costs associated w
    
    Simulation results showing the comparison between the Euler and CVODE integrators.
 
-5. Now have a play with step sizes, number of points, and integration methods to explore the features of these two integration methods.
+5. Now have a play with step sizes, number of points, and integration methods to explore the features of these two integration methods and see if you can address these questions.
+
+   #. What is the largest maximum step size you can use with CVODE to accurately simulate a sine wave with number of points being set to 2?
+   #. How small does :math:`h` need to be to get the same solution with Euler?
+   #. Are either of those a useful solution?
+   #. What is the minimum number of points required to capture an accurate sine wave?
+   #. Can you determine a configuration for Euler and CVODE which demonstrates a cheaper, more accurate, simulation using CVODE with this model?
 
 .. _dtp_cp_sim_ode_task3:
 
@@ -173,3 +183,8 @@ We use the recent `biophysically based mathematical model of unitary potential a
    
    Simulation results for a selection of simulations of the ICC model using various configurations of the CVODE integratior.
    
+5. After exploring the effects of the integrator parameters and the simulated model behaviour, see if you can answer the following questions.
+
+   #. With :math:`h=0.0`, how loose can the tolerance be and still get an accurate solution?
+   #. How tight can you make the tolerance before the computational cost outweighs any improvement in solution accuracy?
+   #. Is there any value of :math:`h` that will give an accurate solution for a tolerance of 0.01?
