@@ -18,6 +18,7 @@ Contents:
    odeintegration
    biologicalcomplexity
    multiscale
+   OpenCOR
    
 .. _dtp_cp_sim_overview:
 
@@ -34,6 +35,7 @@ The quick highlights in this tutorial.
 
 #. How much biological detial is too much?
 #. Integrating cellular models into organ models.
+#. Exploring models from the repository.
 
    
 ..   Indices and tables
