@@ -40,9 +40,3 @@ Task 8: explore alternate ICC models
 
 One benefit of computational physiology is that it makes it easy to explore and compare different hypotheses. The ICC model introduced in Task 3 is a model that captures one representation of the ICC electrophysiology, but there are others. To finsh off this part of the module, take a look through the repository to explore some of the other ICC models that are available. And since the ICC cells are primarily driving the contraction of the smooth muscle cells in the GI system, you might want to see if you can discover any smooth muscle cell models that might be relevant to the GI system.
 
-.. toctree::
-   :hidden:
-   
-   ../../opencor-tutorial/source/create_and_first_run
-   ../../opencor-tutorial/source/open_existing
-   ../../opencor-tutorial/source/sedml_func_cur_web_lab
