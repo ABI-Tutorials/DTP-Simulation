@@ -41,7 +41,7 @@ Task 1 - the effect of step size
 
 As you'd imagine, the size of :math:`h` in the Euler method is crucial to the successful application of the method. For the successful (although perhaps inaccurate) integration of a typical physiological model (see the `Physiome Repository <https://models.physiomeproject.org>`_ for a collection of examples), :math:`h` can be so small that the computational cost of performing the simulation is very high. In some cases, mathematical models may be unsuitable for integration by Euler method, regardless of how small the step size is reduced to.
 
-In the follow task, we investigate the effect of altering the size of :math:`h` on two separate simulation experiments. The first looks at a simple mathematical model where the experiment could be replicated with pen and paper, while the second looks into the application of Euler's method to a biophysical model of cellular electrophysiology.
+In the following task, we investigate the effect of altering the size of :math:`h` on two separate simulation experiments. The first looks at a simple mathematical model where the experiment could be replicated with pen and paper, while the second looks into the application of Euler's method to a biophysical model of cellular electrophysiology.
 
 In this task we use the trivial model:
 
