@@ -1,7 +1,7 @@
 .. _dtp_cp_sim_opencor:
 
-Where do these models come from?
-================================
+Brownie points: Where do these models come from?
+================================================
 
 .. contents::
 
