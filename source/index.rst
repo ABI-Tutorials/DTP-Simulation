@@ -8,7 +8,7 @@
 Computational Physiology - Simulation
 =====================================
 
-This tutorial was created as part of the Computational Physiology module in the `MedTech CoRE <http://cmdt.org.nz>`_ Doctoral Training Programme. The tasks presented in this tutorial are designed to make the reader aware of common key skills required for the application of mathematical models in computational simulation experiments in the context of computational physioloyg. We will demonstrate these skills across a range of spatial scales and numerical methods. 
+This tutorial was created as part of the Computational Physiology module in the `MedTech CoRE <http://cmdt.org.nz>`_ Doctoral Training Programme. The tasks presented in this tutorial are designed to make the reader aware of common key skills required for the application of mathematical models in computational simulation experiments in the context of computational physiology. We will demonstrate these skills across a range of spatial scales and numerical methods. 
 
 Contents:
 
