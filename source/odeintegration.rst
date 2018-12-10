@@ -5,7 +5,7 @@ Integrating systems of differential equations
 
 In this tutorial we look into the integration of systems of differential equations, using example models from the domain of computational physiology. We also examine the the main control parameters that can have a significant impact on the performance and accuracy of a given method.
 
-.. contents::
+.. contents:: Contents:
    :local: 
    :depth: 2
    :backlinks: top
@@ -36,7 +36,7 @@ The value of :math:`y_n` is an approximation of the solution of the ODE :eq:`dtp
 
 .. _dtp_cp_sim_ode_task1:
 
-Task 1 - the effect of step size
+Task 1 - The effect of step size
 ++++++++++++++++++++++++++++++++
 
 As you'd imagine, the size of :math:`h` in the Euler method is crucial to the successful application of the method. For the successful (although perhaps inaccurate) integration of a typical physiological model (see the `Physiome Repository <https://models.physiomeproject.org>`_ for a collection of examples), :math:`h` can be so small that the computational cost of performing the simulation is very high. In some cases, mathematical models may be unsuitable for integration by Euler method, regardless of how small the step size is reduced to.
@@ -61,22 +61,22 @@ As you can see from :eq:`dtp_cp_sim_sine_model`, if correctly integrated :math:`
 .. figure:: _static/euler1.png
    :align: center
    :figwidth: 95%
-   :width: 90%
+   :width: 95%
    :alt: Task 1 workbench.
    
    The first Euler example as loaded.
    
-3. Click the :guilabel:`Execute` button and you should get a widget displayed as per :numref:`fig_dtp_cp_sim_euler2`.
+3. Click the :guilabel:`&Execute` button and you should get a widget displayed as per :numref:`fig_dtp_cp_sim_euler2`.
 
 .. _fig_dtp_cp_sim_euler2:
 
 .. figure:: _static/euler2.png
    :align: center
    :figwidth: 95%
-   :width: 90%
+   :width: 95%
    :alt: Task 1 GUI.
    
-   The cool Euler integrator interface. In this simple interface, you will see the standard sine function, :math:`sin(t)`, plotted in the right hand panel. The toolbar under the plot is self-explanatory, but provides access to some nifty features. At the top of the left hand panel you will see the control to set the Euler step size for this model, :math:`h` and also the number of points to be obtained. The :guilabel:`Simulate` button will execute the Euler integration of the model :eq:`dtp_cp_sim_sine_model` and plot the result on the plot to the right. This can be repeated with various values of :math:`h`. The :guilabel:`Clear graph` button will, surprisingly, clear the current simulation results from the plot panel. The :guilabel:`Done` button will drop you back to the work-flow diagram, where you can get back to the plot by executing the work-flow once more.
+   The cool Euler integrator interface. In this simple interface, you will see the standard sine function, :math:`sin(t)`, plotted in the right hand panel. The toolbar under the plot is self-explanatory, but provides access to some nifty features. At the top of the left hand panel you will see the control to set the Euler step size for this model, :math:`h` and also the number of points to be obtained. The :guilabel:`&Simulate` button will execute the Euler integration of the model :eq:`dtp_cp_sim_sine_model` and plot the result on the plot to the right. This can be repeated with various values of :math:`h`. The :guilabel:`&Clear graph` button will, surprisingly, clear the current simulation results from the plot panel. The :guilabel:`&Done` button will drop you back to the work-flow diagram, where you can get back to the plot by executing the work-flow once more.
    
 4. As described in :numref:`fig_dtp_cp_sim_euler2`, multiple simulations can be performed with varying values for the step size, :math:`h`. Shown in :numref:`fig_dtp_cp_sim_euler3` you can see that as :math:`h` reduces in size, the approximation of the model :eq:`dtp_cp_sim_sine_model` by integration using the Euler method gets more accurate.
 
@@ -105,24 +105,24 @@ From the `Sundials <https://computation.llnl.gov/casc/sundials/main.html>`_ suit
 
 .. _dtp_cp_sim_ode_task2:
 
-Task 2 - fixed vs adaptive stepping
+Task 2 - Fixed vs Adaptive stepping
 +++++++++++++++++++++++++++++++++++
 
 In this task we examine the limitations and the computational costs associated with a fixed step method (Euler) compared to an adaptive step method (CVODE). Here we continue with our sine integration demonstration model to help highlight the differences.
 
 1. Run MAP Client, choose :menuselection:`File --> Open` and select :file:`{HOME}/projects/mapclient-workflows/DTP-Simulation-Task2`.
 2. This simple workflow should look similar to that used in task 1 above (:numref:`fig_dtp_cp_sim_euler1`). The workflow is pre-configured so there is no configuration required.
-3. Click the :guilabel:`Execute` button and you should get a widget displayed as per :numref:`fig_dtp_cp_sim_task2_1`.
+3. Click the :guilabel:`&Execute` button and you should get a widget displayed as per :numref:`fig_dtp_cp_sim_task2_1`.
 
 .. _fig_dtp_cp_sim_task2_1:
 
 .. figure:: _static/task2_1.png
    :align: center
    :figwidth: 95%
-   :width: 90%
+   :width: 95%
    :alt: Task 2 GUI.
    
-   The user interface in this task is similar to that described in :numref:`fig_dtp_cp_sim_euler2`, and the common elements behave the same. In addition there is the ability to choose either the Euler or CVODE numerical integration methods. As the CVODE method is an adaptive stepping method, the value of :math:`h` is used to limit the maximum step size that the algorithm will use, with :math:`h=0` indicating the maximum step size is unlimited.
+   The user interface in this task is similar to that described in :numref:`fig_dtp_cp_sim_euler2`, and the common elements behave the same. In addition, there is the ability to choose either the Euler or CVODE numerical integration methods. As the CVODE method is an adaptive stepping method, the value of :math:`h` is used to limit the maximum step size that the algorithm will use, with :math:`h=0` indicating the maximum step size is unlimited.
    
 4. You can now easily see the difference between the two integration methods by directly comparing them, as shown in :numref:`fig_dtp_cp_sim_task2_2`.
 
@@ -131,7 +131,7 @@ In this task we examine the limitations and the computational costs associated w
 .. figure:: _static/task2_2-new.png
    :align: center
    :figwidth: 95%
-   :width: 90%
+   :width: 95%
    :alt: Task 2 sample results.
    
    Simulation results showing the comparison between the Euler and CVODE integrators.
@@ -146,7 +146,7 @@ In this task we examine the limitations and the computational costs associated w
 
 .. _dtp_cp_sim_ode_task3:
 
-Task 3 - error control
+Task 3 - Error control
 ++++++++++++++++++++++
 
 In addition to providing adaptive stepping, CVODE is also a very configurable solver. Beyond the maximum step size explored above, a further control parameter of that is often of interest are the tolerances used to control the accumulation of error in the numerical approximation of the mathematical model. This tolerance specifies how accurate we require the solution of the integration to be, and the value used can be very specific to the mathematical model being simulated. In task 2 above, we used a tolerance of 1.0e-7. Depending on the behaviour of your mathematical model, you may need to tighten (reduce) or loosen (increase) the tolerance values, depending on the specific application the model is being used for. Here we explore the effect of the tolerance value on the ICC model introduced above.
@@ -155,14 +155,14 @@ We use the recent `biophysically based mathematical model of unitary potential a
 
 1. Run MAP Client, choose :menuselection:`File --> Open` and select :file:`{HOME}/projects/mapclient-workflows/DTP-Simulation-Task3`.
 2. This simple workflow should look similar to that used in task 1 above (:numref:`fig_dtp_cp_sim_euler1`). The workflow is pre-configured so there is no configuration required.
-3. Click the :guilabel:`Execute` button and you should get a widget displayed as per :numref:`fig_dtp_cp_sim_task3_1`.
+3. Click the :guilabel:`&Execute` button and you should get a widget displayed as per :numref:`fig_dtp_cp_sim_task3_1`.
 
 .. _fig_dtp_cp_sim_task3_1:
 
 .. figure:: _static/task3_1.png
    :align: center
    :figwidth: 95%
-   :width: 90%
+   :width: 95%
    :alt: Task 3 GUI.
    
    The user interface in this task is similar to that described in :numref:`fig_dtp_cp_sim_euler2`, and the common elements behave the same. We now are only using the CVODE integration method so :math:`h` is the maximum step size with :math:`h=0` indicating an unlimited step size. The tolerance value for the simulation can also be edited in this interface.
@@ -174,7 +174,7 @@ We use the recent `biophysically based mathematical model of unitary potential a
 .. figure:: _static/task3_2.png
    :align: center
    :figwidth: 95%
-   :width: 90%
+   :width: 95%
    :alt: Task 1 results.
    
    Simulation results for a selection of simulations of the ICC model using various configurations of the CVODE integratior.
